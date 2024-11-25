@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Swaps Kenya</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .page {
+            display: none;
+       }
+     
+        footer {
+            background-color: #4CAF50;
+            color: blue;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 2px solid #4CAF50;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        #swapForm {
+            background-color: #e9f7e9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .search-section {
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .search-button {
+            background-color: #ff6347;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #e53e33;
+        }
+        .category {
+            padding: 5px;
+        }
+        .hardship {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Teacher Swaps Kenya</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('register')">Register</a></li>
+                <li><a href="#" onclick="showPage('login')">Login</a></li>
+                <li><a href="#" onclick="restrictedAccess('swaps')">View Swaps</a></li>
+                <li><a href="#" onclick="restrictedAccess('contact')">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page" style="display: block;">
+            <h2>Welcome to Teacher Swaps Kenya</h2>
+            <p>Find and connect with other teachers for job swaps across Kenya.</p>
+        </section>
+
+        <!-- Registration Page -->
+        <section id="register" class="page">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <!-- Login Page -->
+        <section id="login" class="page">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginEmail">Email:</label><br>
+                <input type="email" id="loginEmail" name="loginEmail" required><br><br>
+                <label for="loginPassword">Password:</label><br>
+                <input type="password" id="loginPassword" name="loginPassword" required><br><br>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <!-- Swaps Page -->
+        <section id="swaps" class="page">
+            <h2>Available Swaps</h2>
+            <form id="swapForm">
+                <div class="form-group">
+                    <label for="teacherName">Teacher's Name:</label>
+                    <input type="text" id="teacherName" name="teacherName" required><br><br>
+                </div>
+                <div class="form-group">
+                    <label for="county">County:</label>
+                    <select id="county" name="county" required>
+                        <option value="">Select County</option>
+                        <option value="Mombasa">Mombasa</option>
+                        <option value="Kwale">Kwale</option>
+                        <option value="Kilifi">Kilifi</option>
+                        <option value="Tana River">Tana River</option>
+                        <option value="Lamu">Lamu</option>
+                        <option value="Taita/Taveta">Taita/Taveta</option>
+                        <option value="Garissa">Garissa</option>
+                        <option value="Wajir">Wajir</option>
+                        <option value="Mandera">Mandera</option>
+                        <option value="Marsabit">Marsabit</option>
+                        <option value="Isiolo">Isiolo</option>
+                        <option value="Meru">Meru</option>
+                        <option value="Tharaka-Nithi">Tharaka-Nithi</option>
+                        <option value="Embu">Embu</option>
+                        <option value="Kitui">Kitui</option>
+                        <option value="Machakos">Machakos</option>
+                        <option value="Makueni">Makueni</option>
+                        <option value="Nyandarua">Nyandarua</option>
+                        <option value="Nyeri">Nyeri</option>
+                        <option value="Kirinyaga">Kirinyaga</option>
+                        <option value="Murang'a">Murang'a</option>
+                        <option value="Kiambu">Kiambu</option>
+                        <option value="Turkana">Turkana</option>
+                        <option value="West Pokot">West Pokot</option>
+                        <option value="Samburu">Samburu</option>
+                        <option value="Trans Nzoia">Trans Nzoia</option>
+                        <option value="Uasin Gishu">Uasin Gishu</option>
+                        <option value="Elgeyo/Marakwet">Elgeyo/Marakwet</option>
+                        <option value="Nandi">Nandi</option>
+                        <option value="Baringo">Baringo</option>
+                        <option value="Laikipia">Laikipia</option>
+                        <option value="Nakuru">Nakuru</option>
+                        <option value="Narok">Narok</option>
+                        <option value="Kajiado">Kajiado</option>
+                        <option value="Kericho">Kericho</option>
+                        <option value="Bomet">Bomet</option>
+                        <option value="Kakamega">Kakamega</option>
+                        <option value="Vihiga">Vihiga</option>
+                        <option value="Bungoma">Bungoma</option>
+                        <option value="Busia">Busia</option>
+                        <option value="Siaya">Siaya</option>
+                        <option value="Kisumu">Kisumu</option>
+                        <option value="Homa Bay">Homa Bay</option>
+                        <option value="Migori">Migori</option>
+                        <option value="Kisii">Kisii</option>
+                        <option value="Nyamira">Nyamira</option>
+                        <option value="Nairobi">Nairobi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" required><br><br>
+                </div>
+                <div class="form-group">
+                    <label for="subjectCombo">Subject Combination:</label>
+                    <input type="text" id="subjectCombo" name="subjectCombo" required><br><br>
+                </div>
+                <div class="form-group">
+                    <label for="swapCountyTo">Swap County To:</label>
+                    <select id="swapCountyTo" name="swapCountyTo" required>
+                <option value="">Select Swap County</option>
+                    <option value="Mombasa">Mombasa</option>
+                    <option value="Kwale">Kwale</option>
+                    <option value="Kilifi">Kilifi</option>
+                    <option value="Tana River">Tana River</option>
+                    <option value="Lamu">Lamu</option>
+                    <option value="Taita/Taveta">Taita/Taveta</option>
+                    <option value="Garissa">Garissa</option>
+                    <option value="Wajir">Wajir</option>
+                    <option value="Mandera">Mandera</option>
+                    <option value="Marsabit">Marsabit</option>
+                    <option value="Isiolo">Isiolo</option>
+                    <option value="Meru">Meru</option>
+                    <option value="Tharaka-Nithi">Tharaka-Nithi</option>
+                    <option value="Embu">Embu</option>
+                    <option value="Kitui">Kitui</option>
+                    <option value="Machakos">Machakos</option>
+                    <option value="Makueni">Makueni</option>
+                    <option value="Nyandarua">Nyandarua</option>
+                    <option value="Nyeri">Nyeri</option>
+                    <option value="Kirinyaga">Kirinyaga</option>
+                    <option value="Murang'a">Murang'a</option>
+                    <option value="Kiambu">Kiambu</option>
+                    <option value="Turkana">Turkana</option>
+                    <option value="West Pokot">West Pokot</option>
+                    <option value="Samburu">Samburu</option>
+                    <option value="Trans Nzoia">Trans Nzoia</option>
+                    <option value="Uasin Gishu">Uasin Gishu</option>
+                    <option value="Elgeyo/Marakwet">Elgeyo/Marakwet</option>
+                    <option value="Nandi">Nandi</option>
+                    <option value="Baringo">Baringo</option>
+                    <option value="Laikipia">Laikipia</option>
+                    <option value="Nakuru">Nakuru</option>
+                    <option value="Narok">Narok</option>
+                    <option value="Kajiado">Kajiado</option>
+                    <option value="Kericho">Kericho</option>
+                    <option value="Bomet">Bomet</option>
+                    <option value="Kakamega">Kakamega</option>
+                    <option value="Vihiga">Vihiga</option>
+                    <option value="Bungoma">Bungoma</option>
+                    <option value="Busia">Busia</option>
+                    <option value="Siaya">Siaya</option>
+                    <option value="Kisumu">Kisumu</option>
+                    <option value="Homa Bay">Homa Bay</option>
+                    <option value="Migori">Migori</option>
+                    <option value="Kisii">Kisii</option>
+                    <option value="Nyamira">Nyamira</option>
+                    <option value="Nairobi City">Nairobi City</option>
+                </select><br><br>
+
+                    </select>
+                </div>
+                <div class="form-group category">
+                    <label for="category">Category:</label><br>
+                    <input type="radio" id="primary" name="category" value="Primary"> Primary
+                    <input type="radio" id="juniorSecondary" name="category" value="Junior Secondary"> Junior Secondary
+                    <input type="radio" id="seniorSecondary" name="category" value="Senior Secondary"> Senior Secondary<br><br>
+                </div>
+                <div class="form-group hardship">
+                    <label for="hardship">Hardship:</label><br>
+                    <input type="radio" id="withHardship" name="hardship" value="With Hardship"> With Hardship
+                    <input type="radio" id="withoutHardship" name="hardship" value="Without Hardship"> Without Hardship<br><br>
+                </div>
+                <button type="submit">Register Swap</button>
+            </form>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <input type="text" id="searchSubject" class="search-input" placeholder="Search by Subject Combination">
+                <input type="text" id="searchCounty" class="search-input" placeholder="Search by Swap County">
+                <button class="search-button" onclick="searchSwaps()">Search</button>
+            </div>
+
+            <h3>Registered Swaps</h3>
+            <table id="swapsTable">
+                <thead>
+                    <tr>
+                        <th>Teacher's Name</th>
+                        <th>County</th>
+                        <th>Swap County</th>
+                        <th>Phone Number</th>
+                        <th>Subject Combination</th>
+                        <th>Category</th>
+                        <th>Hardship</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Registered swap data will go here -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Contact Us Page -->
+        <section id="contact" class="page">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, reach us at support@teacherswapskenya.com.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Teacher Swaps Kenya</p>
+    </footer>
+
+    <script>
+        let isRegistered = false;
+        let isLoggedIn = false;
+        let hasPaid = false;
+        let swaps = [];
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        function restrictedAccess(pageId) {
+            if (!isRegistered) {
+                alert("Please register first to access this section.");
+                showPage('register');
+            } else if (!isLoggedIn) {
+                alert("Please log in to access this section.");
+                showPage('login');
+            } else if (!hasPaid && swaps.length > 0) {
+                alert("You need to complete the payment to access swaps.");
+                showPaymentPrompt();
+            } else {
+                showPage(pageId);
+            }
+        }
+
+        function showPaymentPrompt() {
+            const paymentMessage = "Pay Ksh 100 to M-Pesa number 0792755676 to access swaps and send requests. Click OK after payment.";
+            const paymentConfirmed = confirm(paymentMessage);
+            if (paymentConfirmed) {
+                hasPaid = true;
+                alert("Payment confirmed. You can now access the swaps.");
+            } else {
+                alert("Please complete the payment to access swaps.");
+            }
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            isRegistered = true;
+            alert('Registration successful!');
+            showPage('login');
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (isRegistered) {
+                isLoggedIn = true;
+                alert('Login successful!');
+                showPaymentPrompt();
+            } else {
+                alert("Please register first.");
+                showPage('register');
+            }
+        });
+
+        document.getElementById('swapForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (swaps.length >= 1) {
+                alert("You can only register one swap. Please make a payment to register another.");
+                showPaymentPrompt();
+            } else {
+                const teacherName = document.getElementById('teacherName').value;
+                const county = document.getElementById('county').value;
+                const swapCountyTo = document.getElementById('swapCountyTo').value;
+                const phone = document.getElementById('phone').value;
+                const subjectCombo = document.getElementById('subjectCombo').value;
+                const category = document.querySelector('input[name="category"]:checked').value;
+                const hardship = document.querySelector('input[name="hardship"]:checked').value;
+
+                const newSwap = {
+                    teacherName, county, phone, subjectCombo, swapCountyTo, category, hardship
+                };
+                swaps.push(newSwap);
+
+                // Update the swaps table
+                updateSwapsTable();
+
+                // Clear the form
+                document.getElementById('swapForm').reset();
+            }
+        });
+
+        function updateSwapsTable() {
+            const tableBody = document.getElementById('swapsTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = "";
+            swaps.forEach(swap => {
+                const row = tableBody.insertRow();
+                row.insertCell(0).textContent = swap.teacherName;
+                row.insertCell(1).textContent = swap.county;  
+                row.insertCell(2).textContent = swap.swapCountyTo;
+                row.insertCell(3).textContent = swap.phone;
+                row.insertCell(4).textContent = swap.subjectCombo;
+               row.insertCell(5).textContent = swap.category;
+                row.insertCell(6).textContent = swap.hardship;
+            });
+        }
+
+        function searchSwaps() {
+            const searchSubject = document.getElementById('searchSubject').value.toLowerCase();
+            const searchCounty = document.getElementById('searchCounty').value.toLowerCase();
+            const filteredSwaps = swaps.filter(swap => 
+                swap.subjectCombo.toLowerCase().includes(searchSubject) && 
+                swap.swapCountyTo.toLowerCase().includes(searchCounty)
+            );
+
+            const tableBody = document.getElementById('swapsTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = "";
+            filteredSwaps.forEach(swap => {
+              const row = tableBody.insertRow();
+                row.insertCell(0).textContent = swap.teacherName;
+                row.insertCell(1).textContent = swap.county;  
+                row.insertCell(2).textContent = swap.swapCountyTo;
+                row.insertCell(3).textContent = swap.phone;
+                row.insertCell(4).textContent = swap.subjectCombo;
+               row.insertCell(5).textContent = swap.category;
+                row.insertCell(6).textContent = swap.hardship;
+            });
+        }
+    </script>
+</body>
+</html>
